@@ -1,4 +1,4 @@
 .idea
 __pycache_
-venv_
+venv
 src/__pycache__
