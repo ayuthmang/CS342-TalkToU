@@ -23,4 +23,3 @@ class SocketConnection:
             print(e)
             sys.exit(-1)
 
-
