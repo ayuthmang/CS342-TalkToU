@@ -1,4 +1,0 @@
-from TUSocket import TUSocket
-
-
-TUSOCK = TUSocket(user="5809610347", pwd="0347", port="54321")

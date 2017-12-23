@@ -6,6 +6,12 @@ import socket
 
 SERVER_IP = '128.199.83.36'
 SERVER_PORT = 34260
+# SERVER_IP = '203.131.208.15'
+# SERVER_PORT = 60342
+
+
+# 203.131.208.15
+# 60342
 
 CLIENT_PORT = 12345
 CLIENT_PRIVATE_IP = my_ip = socket.gethostbyname(socket.gethostname())

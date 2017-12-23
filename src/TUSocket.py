@@ -1,8 +1,7 @@
-import socket
 import re
 import threading
 import sys
-from Environments import *
+from src.Environments import *
 
 
 class TUSocket:
