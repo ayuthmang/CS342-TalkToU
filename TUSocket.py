@@ -10,7 +10,7 @@ class TUSocket:
     def __init__(self, *args, **kwargs):
         self.USER = kwargs['user']
         self.PWD = kwargs['pwd']
-        self.PORT = kwargs['port']
+        self.PORT = int(kwargs['port'])
 
         print("USER: %s" % self.USER)
         print("PRIVATE IP: %s" % CLIENT_PRIVATE_IP)
@@ -27,7 +27,7 @@ class TUSocket:
         select = input("select: ").strip()
 
         if select == "1":
-            print("\nCreating room %s %s" % (CLIENT_PRIVATE_IP, CLIENT_PORT))
+            print("\nCreating room %s %s" % (CLIENT_PRIVATE_IP, self.PORT))
             threading.Thread(target=self.wait_for_connection).start()
         elif select == "2":
             print("\nWhich friend you want to join ?")
@@ -44,7 +44,7 @@ class TUSocket:
 
     def wait_for_connection(self):
         listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        listen_socket.bind((CLIENT_PRIVATE_IP, CLIENT_PORT))
+        listen_socket.bind((CLIENT_PRIVATE_IP, self.PORT))
         listen_socket.listen(10)
         while True:
             connection_socket, addr = listen_socket.accept()
@@ -59,7 +59,7 @@ class TUSocket:
                 if payload.strip() == 'exit()':
                     sock.close()
                     return
-                payload = "('%s', %d) %s\n" % (CLIENT_PRIVATE_IP, CLIENT_PORT, payload.strip())
+                payload = "('%s', %d) %s\n" % (CLIENT_PRIVATE_IP, self.PORT, payload.strip())
                 self.sock_send(sock, payload)
             except Exception as e:
                 print("socket are in trouble, please try again")
@@ -131,3 +131,8 @@ class TUSocket:
             return sock.recv(2048).decode()
         except Exception as e:
             raise
+
+    # def listen_connection(self):
+    #
+    # def recv_msg(self, sock):
+    #     pass
