@@ -1,5 +1,3 @@
-from TUSocket import TUSocket
-import subprocess
+from src.TUSocket import TUSocket
 
-# p = subprocess.Popen(["python", "client.py", "localhost", "9001"], stdout=subprocess.PIPE)
 TUSOCK = TUSocket(user="5809610099", pwd="0099", port="9001")
