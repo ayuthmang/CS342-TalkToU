@@ -132,7 +132,3 @@ class TUSocket:
         except Exception as e:
             raise
 
-    # def listen_connection(self):
-    #
-    # def recv_msg(self, sock):
-    #     pass
